@@ -1,5 +1,4 @@
 // Global Variables
-
 let courses = coursesDB;
 let currentCourse = null;
 let player; // كائن مشغل يوتيوب العالمي
@@ -210,11 +209,10 @@ function updateProgressLine(courseId) {
   progressPercentage.textContent = `${percent}% مكتمل`;
   progressLine.style.width = `${percent}%`;
 }
-// 1. تحديث العنوان والوصف ديناميكياً من بيانات الكورس
+
 function openCourseDetails(course) {
   currentCourse = course;
 
-  // 1. تحديث العنوان والوصف ديناميكياً من بيانات الكورس
   const titleElem = document.getElementById("dynamic-course-title");
   const descElem = document.getElementById("dynamic-course-desc");
   const levelElem = document.getElementById("dynamic-course-level");
@@ -226,4 +224,28 @@ function openCourseDetails(course) {
   if (levelElem) levelElem.innerText = course.level;
   if (semesterElem) semesterElem.innerText = course.semester;
   if (facultyElem) facultyElem.innerText = course.faculty;
+}
+
+// Filters
+const levelFilter = document.getElementById("level-filter");
+const semesterFilter = document.getElementById("semester-filter");
+
+if (levelFilter && semesterFilter) {
+  levelFilter.addEventListener("change", filterItems);
+  semesterFilter.addEventListener("change", filterItems);
+}
+
+function filterItems() {
+  const levelValue = levelFilter.value;
+  const semesterValue = semesterFilter.value;
+
+  const filtered = courses.filter((course) => {
+    const matchLevel = levelValue === "all" || course.level === levelValue;
+    const matchSemester =
+      semesterValue === "all" || course.semester === semesterValue;
+
+    return matchLevel && matchSemester;
+  });
+
+  drawCoursesUI(filtered);
 }
