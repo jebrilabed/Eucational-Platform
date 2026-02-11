@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="style/fontawesome-free-7.1.0-web/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <title>Educational Platform | Home Page</title>
+  </head>
+
+  <body dir="rtl" style="font-family: Cairo, sans-serif">
+
+    <header
+      class="sticky top-0 z-50 shadow-sm border-b border-b-gray-200 bg-white"
+    >
+      <div class="p-8 max-w-7xl mx-auto">
+        <div class="flex justify-between items-center">
+          <a href="#" onclick="changePage('home')" class="text-2xl font-bold group flex">
+            <div
+              class="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-book-open w-6 h-6 text-white"
+              >
+                <path d="M12 7v14"></path>
+                <path
+                  d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"
+                ></path>
+              </svg>
+            </div>
+            <h1
+              class="px-2 text-gray-900 group-hover:text-blue-600 transition-colors"
+            >
+              منصة التعليم الأكاديمي
+            </h1>
+          </a>
+
+          <nav>
+            <ul class="list-none flex justify-between gap-5">
+              <li class="text-gray-900 hover:text-blue-600 transition-colors">
+                <a href="#" id="homeLink" class="links" onclick="changePage('home')">الرئيسية</a>
+              </li>
+              <li class="text-gray-900 hover:text-blue-600 transition-colors">
+                <a href="#" id="coursesLink" class="links" onclick="changePage('courses')">الكورسات</a>
+              </li>
+              <li class="text-gray-900 hover:text-blue-600 transition-colors">
+                <a href="#" id="aboutPlatformLink" class="links" onclick="changePage('aboutPlatform')">حول المنصة</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <div id="home" class="page">
+      <section
+        class="bg-gradient-to-br from-blue-600 via-indigo-600 to-blue-700"
+      >
+        <div class="py-32 max-w-7xl mx-auto">
+          <div class="flex gap-17 justify-center">
+            <div class="w-full lg:w-5/12">
+              <span
+                class="text-blue-100 bg-white/20 py-2 px-4 text-sm rounded-full"
+                >منصة التعليم الأكاديمي للمهندسين</span
+              >
+              <h1
+                class="text-blue-100 xl:text-6xl md:text-5xl text-4xl my-6 font-bold leading-tight"
+              >
+                رحلتك التعليمية تبدأ من هنا
+              </h1>
+              <p class="text-blue-100 leading-relaxed text-xl">
+                منصة تعليمية متكاملة لطلاب الهندسة وتكنولوجيا المعلومات. اكتشف
+                مئات الكورسات الأكاديمية المنظمة والمصممة خصيصاً لدعم مسيرتك
+                التعليمية.
+              </p>
+              <div class="mt-8 flex gap-5">
+                <a
+                  href="#"
+                  onclick="changePage('courses')"
+                  class="bg-white text-blue-600 px-7 py-4 rounded-xl shadow-lg hover:bg-blue-50 hover:shadow-xl transition-all duration-300"
+                >
+                  <span>تصفح الكورسات</span>
+                  <i class="fa-solid fa-arrow-left align-middle mr-1"></i>
+                </a>
+                <a
+                  href="#"
+                  onclick="changePage('aboutPlatform')"
+                  class="bg-white/10 backdrop-blur-sm shadow-lg border-2 border-white/20 text-white px-7 py-4 rounded-xl hover:bg-white/20 transition-all duration-300"
+                  >تعرف علينا</a
+                >
+              </div>
+            </div>
+
+            <div class="w-5/12 mt-8 hidden lg:block">
+              <div
+                class="bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg rounded-3xl py-4 px-8"
+              >
+                <div
+                  class="text-blue-100 bg-white/30 p-4 rounded-xl my-4 flex gap-5"
+                >
+                  <div
+                    class="bg-blue-500 w-12 h-12 rounded-xl flex justify-center items-center"
+                  >
+                    <i class="fa-solid fa-graduation-cap"></i>
+                  </div>
+                  <div class="mt-2">
+                    <div class="bg-white/30 w-32 h-3 rounded-lg mb-2"></div>
+                    <div class="bg-white/20 w-20 h-2 rounded-lg"></div>
+                  </div>
+                </div>
+
+                <div
+                  class="text-blue-100 bg-white/30 p-3 rounded-xl my-4 flex gap-5"
+                >
+                  <div
+                    class="bg-indigo-500 w-12 h-12 rounded-xl flex justify-center items-center"
+                  >
+                    <i class="fa-solid fa-book-open"></i>
+                  </div>
+                  <div class="mt-2">
+                    <div class="bg-white/30 w-32 h-3 rounded-lg mb-2"></div>
+                    <div class="bg-white/20 w-20 h-2 rounded-lg"></div>
+                  </div>
+                </div>
+
+                <div
+                  class="text-blue-100 bg-white/30 p-3 rounded-xl my-4 flex gap-5"
+                >
+                  <div
+                    class="bg-blue-400 w-12 h-12 rounded-xl flex justify-center items-center"
+                  >
+                    <i class="fa-regular fa-lightbulb"></i>
+                  </div>
+                  <div class="mt-2">
+                    <div class="bg-white/30 w-32 h-3 rounded-lg mb-2"></div>
+                    <div class="bg-white/20 w-20 h-2 rounded-lg"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="py-16 px-8 max-w-7xl mx-auto border-b border-gray-200">
+          <div class="grid lg:grid-cols-4 grid-cols-2 gap-8">
+            <div class="text-center">
+              <h2 class="text-5xl text-indigo-600 mb-2">100+</h2>
+              <span class="text-gray-600 text-lg">درس تعليمي</span>
+            </div>
+            <div class="text-center">
+              <h2 class="text-5xl text-indigo-600 mb-2">2</h2>
+              <span class="text-gray-600 text-lg">تخصص رئيسي</span>
+            </div>
+            <div class="text-center">
+              <h2 class="text-5xl text-indigo-600 mb-2">5</h2>
+              <span class="text-gray-600 text-lg">مستويات دراسية</span>
+            </div>
+            <div class="text-center">
+              <h2 class="text-5xl text-indigo-600 mb-2">+12</h2>
+              <span class="text-gray-600 text-lg">كورس أكاديمي</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-gray-50">
+        <div class="py-14 px-8 max-w-7xl mx-auto">
+          <div class="text-center">
+            <h2 class="text-4xl mb-4 font-bold">لماذا تختار منصتنا؟</h2>
+            <p class="max-w-2xl mx-auto text-xl text-gray-600">
+              نوفر لك تجربة تعليمية متكاملة مصممة خصيصا لطلاب الهنجسة وتكنولوجيا
+              المعلومات
+            </p>
+          </div>
+          <div
+            class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 my-9"
+          >
+            <div
+              class="border border-gray-200 rounded-xl shadow-sm bg-white p-7 hover:shadow-lg transition-all duration-300"
+            >
+              <div
+                class="bg-gradient-to-br from-blue-600 via-indigo-600 to-blue-700 w-14 h-14 rounded-xl flex justify-center items-center"
+              >
+                <i class="fa-solid fa-book-open fa-xl text-white"></i>
+              </div>
+              <h3 class="text-gray-900 my-3 text-2xl">محتوى منظم وشامل</h3>
+              <p class="text-gray-600 leading-relaxed">
+                جميع الكورسات منظمة حسب المستوى الأكاديمي والفصل الدراسي لتسهيل
+                الوصول والتعلم المنهجي
+              </p>
+            </div>
+
+            <div
+              class="border border-gray-200 rounded-xl shadow-sm bg-white p-7 hover:shadow-lg transition-all duration-300"
+            >
+              <div
+                class="bg-gradient-to-br from-blue-600 via-indigo-600 to-blue-700 w-14 h-14 rounded-xl flex justify-center items-center"
+              >
+                <i class="fa-solid fa-rocket fa-xl text-white"></i>
+              </div>
+              <h3 class="text-gray-900 my-3 text-2xl">تقدم واضح ومتابعة</h3>
+              <p class="text-gray-600 leading-relaxed">
+                تتبع تقدمك في كل كورس بسهولة من خلال مؤشرات الإنجاز الواضحة
+                والمرئية
+              </p>
+            </div>
+
+            <div
+              class="border border-gray-200 rounded-xl shadow-sm bg-white p-7 hover:shadow-lg transition-all duration-300"
+            >
+              <div
+                class="bg-gradient-to-br from-blue-600 via-indigo-600 to-blue-700 w-14 h-14 rounded-xl flex justify-center items-center"
+              >
+                <i class="fa-regular fa-user fa-xl text-white"></i>
+              </div>
+              <h3 class="text-gray-900 my-3 text-2xl">مصمم للطلاب</h3>
+              <p class="text-gray-600 leading-relaxed">
+                واجهة نظيفة وبسيطة مصممة خصيصاً لتلبية احتياجات الطلاب الجامعيين
+              </p>
+            </div>
+
+            <div
+              class="border border-gray-200 rounded-xl shadow-sm bg-white p-7 hover:shadow-lg transition-all duration-300"
+            >
+              <div
+                class="bg-gradient-to-br from-blue-600 via-indigo-600 to-blue-700 w-14 h-14 rounded-xl flex justify-center items-center"
+              >
+                <i class="fa-solid fa-award fa-xl text-white"></i>
+              </div>
+              <h3 class="text-gray-900 my-3 text-2xl">جودة أكاديمية</h3>
+              <p class="text-gray-600 leading-relaxed">
+                محتوى تعليمي احترافي يغطي كافة المواد الأساسية في مجالي الهندسة
+                وتكنولوجيا المعلومات
+              </p>
+            </div>
+
+            <div
+              class="border border-gray-200 rounded-xl shadow-sm bg-white p-7 hover:shadow-lg transition-all duration-300"
+            >
+              <div
+                class="bg-gradient-to-br from-blue-600 via-indigo-600 to-blue-700 w-14 h-14 rounded-xl flex justify-center items-center"
+              >
+                <i class="fa-solid fa-chart-line fa-xl text-white"></i>
+              </div>
+              <h3 class="text-gray-900 my-3 text-2xl">تطور مستمر</h3>
+              <p class="text-gray-600 leading-relaxed">
+                نحدث المحتوى باستمرار لمواكبة أحدث التطورات في المجالين الهندسي
+                والتقني
+              </p>
+            </div>
+
+            <div
+              class="border border-gray-200 rounded-xl shadow-sm bg-white p-7 hover:shadow-lg transition-all duration-300"
+            >
+              <div
+                class="bg-gradient-to-br from-blue-600 via-indigo-600 to-blue-700 w-14 h-14 rounded-xl flex justify-center items-center"
+              >
+                <i class="fa-regular fa-lightbulb fa-xl text-white"></i>
+              </div>
+              <h3 class="text-gray-900 my-3 text-2xl">تعلم ذكي</h3>
+              <p class="text-gray-600 leading-relaxed">
+                نظام تصفية متقدم يساعدك في العثور على الكورس المناسب بسرعة
+                وسهولة
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-gradient-to-br from-blue-600 to-indigo-600">
+        <div class="text-center py-16">
+          <h2 class="text-4xl my-6 font-bold text-white">
+            ابدأ رحلتك التعليمية الآن
+          </h2>
+          <p class="px-4 text-xl text-blue-100 leading-relaxed">
+            انضم إلى آلاف الطلاب الذين يطورون مهاراتهم الأكاديمية من خلال منصتنا
+            التعليمية
+          </p>
+          <div class="mb-6 mt-12">
+            <a
+              href="#"
+              onclick="changePage('courses')"
+              class="bg-white text-blue-600 px-7 py-4 rounded-xl shadow-lg hover:bg-blue-50 hover:shadow-xl transition-all duration-300"
+              >استكشف الكورسات</a
+            >
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div id="courses" class="page">
+      <section class="bg-gray-50">
+      <div class="pt-14 pb-24 px-8 max-w-7xl mx-auto">
+        <div>
+          <h2 class="text-gray-900 text-3xl font-bold">الكورسات الأكاديمية</h2>
+          <p class="text-gray-600">
+            استعرض جميع كورسات الهندسة وتكنولوجيا المعلومات
+          </p>
+        </div>
+
+        <div
+          class="border border-gray-200 rounded-xl shadow-sm bg-white p-7 mt-7"
+        >
+          <div class="flex gap-2 items-center">
+            <i class="fa-solid fa-filter fa-lg"></i>
+            <h3 class="text-gray-900 text-xl">تصفية الكورسات</h3>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3">
+            <div>
+              <label for="المستوى الأكاديمي" class="block text-gray-600 text-sm"
+                >المستوى الأكاديمي</label
+              >
+              <select
+                name="المستوى الأكاديمي"
+                id="level-filter"
+                class="w-full px-4 py-3 mt-2 bg-gray-50 text-gray-900 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+              >
+                <option value="all">جميع المستويات</option>
+                <option value="المستوى الأول">المستوى الأول</option>
+                <option value="المستوى الثاني">المستوى الثاني</option>
+                <option value="المستوى الثالث">المستوى الثالث</option>
+                <option value="المستوى الرابع">المستوى الرابع</option>
+                <option value="المستوى الخامس">المستوى الخامس</option>
+              </select>
+            </div>
+            <div>
+              <label for="الفصل الدراسي" class="block text-gray-600 text-sm"
+                >الفصل الدراسي</label
+              >
+              <select
+                name="الفصل الدراسي"
+                id="semester-filter"
+                class="w-full px-4 py-3 mt-2 bg-gray-50 text-gray-900 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+              >
+                <option value="all" >جميع الفصول</option>
+                <option value="الفصل الأول">الفصل الأول</option>
+                <option value="الفصل الثاني">الفصل الثاني</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto mb-6 mt-8">
+          <p class="text-gray-700">
+            عرض <span id="num-of-courses" class="text-blue-600"></span> كورس
+          </p>
+        </div>
+
+        <div class="grid gap-6 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1" id="courses-container">
+        </div>
+    </section>
+    </div>
+
+    <div id="aboutPlatform" class="page">
+      <section>
+        <div
+          class="px-12 py-20 bg-gradient-to-br from-blue-600 to-indigo-600 text-center"
+        >
+          <div
+            class="bg-white/20 w-20 h-20 rounded-2xl flex justify-center items-center mx-auto"
+          >
+            <i class="fa-solid fa-book-open fa-2xl text-white"></i>
+          </div>
+          <h1 class="text-5xl text-white font-bold my-6">
+            حول منصة التعليم الأكاديمي
+          </h1>
+          <p class="text-blue-100 max-w-3xl mx-auto text-xl">
+            منصة تعليمية متخصصة تهدف إلى دعم طلاب الهندسة وتكنولوجيا المعلومات في
+            رحلتهم الأكاديمية من خلال محتوى منظم وشامل
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <div
+          class="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-12 max-w-7xl px-7 mx-auto my-20"
+        >
+          <div
+            class="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100 rounded-2xl p-8"
+          >
+            <div
+              class="bg-blue-600 w-14 h-14 rounded-xl flex justify-center items-center"
+            >
+              <i class="fa-solid fa-bullseye fa-xl text-white"></i>
+            </div>
+            <h3 class="text-3xl text-gray-900 font-bold my-4">رسالتنا</h3>
+            <p class="text-gray-700 leading-relaxed">
+              نسعى لتوفير بيئة تعليمية رقمية متكاملة تساعد طلاب الجامعات في مجالي
+              الهندسة وتكنولوجيا المعلومات على الوصول إلى محتوى أكاديمي منظم وعالي
+              الجودة، مما يعزز من تجربتهم التعليمية ويساهم في تحقيق التميز
+              الأكاديمي.
+            </p>
+          </div>
+
+          <div
+            class="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100 rounded-2xl p-8"
+          >
+            <div
+              class="bg-blue-600 w-14 h-14 rounded-xl flex justify-center items-center"
+            >
+              <i class="fa-regular fa-lightbulb fa-xl text-white"></i>
+            </div>
+            <h3 class="text-3xl text-gray-900 font-bold my-4">رؤيتنا</h3>
+            <p class="text-gray-700 leading-relaxed">
+              أن نكون المنصة التعليمية الرائدة في العالم العربي لطلاب الهندسة
+              وتكنولوجيا المعلومات، ونساهم في بناء جيل من المهندسين والتقنيين
+              المؤهلين القادرين على مواجهة تحديات المستقبل وقيادة الابتكار في
+              مجالاتهم.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-gray-50">
+        <div class="py-14 px-8 max-w-7xl mx-auto">
+          <div class="text-center">
+            <h2 class="text-4xl mb-4 font-bold">قيمنا الأساسية</h2>
+            <p class="max-w-2xl mx-auto text-xl text-gray-600">
+              المبادئ التي نؤمن بها وتوجه عملنا اليومي
+            </p>
+          </div>
+          <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 my-9">
+            <div
+              class="border border-gray-200 rounded-xl shadow-sm bg-white p-7 hover:shadow-lg transition-all duration-300"
+            >
+              <div
+                class="bg-blue-100 w-14 h-14 rounded-xl flex justify-center items-center"
+              >
+                <i class="fa-solid fa-award fa-xl text-blue-600"></i>
+              </div>
+              <h3 class="text-gray-900 my-3 text-2xl">الجودة الأكاديمية</h3>
+              <p class="text-gray-600 leading-relaxed">
+                نلتزم بتقديم محتوى تعليمي عالي الجودة يتماشى مع المعايير
+                الأكاديمية العالمية
+              </p>
+            </div>
+
+            <div
+              class="border border-gray-200 rounded-xl shadow-sm bg-white p-7 hover:shadow-lg transition-all duration-300"
+            >
+              <div
+                class="bg-indigo-100 w-14 h-14 rounded-xl flex justify-center items-center"
+              >
+                <i class="fa-regular fa-user fa-xl text-indigo-600"></i>
+              </div>
+              <h3 class="text-gray-900 my-3 text-2xl">التركيز على الطالب</h3>
+              <p class="text-gray-600 leading-relaxed">
+                نضع احتياجات الطلاب في المقام الأول ونصمم تجربة تعليمية تناسب
+                متطلباتهم
+              </p>
+            </div>
+
+            <div
+              class="border border-gray-200 rounded-xl shadow-sm bg-white p-7 hover:shadow-lg transition-all duration-300"
+            >
+              <div
+                class="bg-blue-100 w-14 h-14 rounded-xl flex justify-center items-center"
+              >
+                <i class="fa-solid fa-chart-line fa-xl text-blue-600"></i>
+              </div>
+              <h3 class="text-gray-900 my-3 text-2xl">التطوير المستمر</h3>
+              <p class="text-gray-600 leading-relaxed">
+                نسعى دائماً لتحسين منصتنا ومحتوانا لمواكبة أحدث التطورات التقنية
+                والأكاديمية
+              </p>
+            </div>
+
+            <div
+              class="border border-gray-200 rounded-xl shadow-sm bg-white p-7 hover:shadow-lg transition-all duration-300"
+            >
+              <div
+                class="bg-indigo-100 w-14 h-14 rounded-xl flex justify-center items-center"
+              >
+                <i class="fa-solid fa-book-open fa-xl text-indigo-600"></i>
+              </div>
+              <h3 class="text-gray-900 my-3 text-2xl">التنظيم والوضوح</h3>
+              <p class="text-gray-600 leading-relaxed">
+                نقدم المحتوى بطريقة منظمة وواضحة تسهل عملية التعلم والوصول
+                للمعلومات
+              </p>
+            </div>
+
+            <div
+              class="border border-gray-200 rounded-xl shadow-sm bg-white p-7 hover:shadow-lg transition-all duration-300"
+            >
+              <div
+                class="bg-blue-100 w-14 h-14 rounded-xl flex justify-center items-center"
+              >
+                <i class="fa-regular fa-lightbulb fa-xl text-blue-600"></i>
+              </div>
+              <h3 class="text-gray-900 my-3 text-2xl">الابتكار</h3>
+              <p class="text-gray-600 leading-relaxed">
+                نشجع التفكير الإبداعي والابتكار في تقديم الحلول التعليمية
+              </p>
+            </div>
+
+            <div
+              class="border border-gray-200 rounded-xl shadow-sm bg-white p-7 hover:shadow-lg transition-all duration-300"
+            >
+              <div
+                class="bg-indigo-100 w-14 h-14 rounded-xl flex justify-center items-center"
+              >
+                <i class="fa-solid fa-bullseye fa-xl text-indigo-600"></i>
+              </div>
+              <h3 class="text-gray-900 my-3 text-2xl">التميز</h3>
+              <p class="text-gray-600 leading-relaxed">
+                نسعى لتحقيق التميز في كل جانب من جوانب المنصة والخدمات المقدمة
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="py-20 px-7 max-w-5xl mx-auto">
+          <div class="text-center">
+            <h2 class="text-4xl mb-4 font-bold">ماذا نقدم؟</h2>
+          </div>
+
+          <div class="mt-16">
+            <div class="flex gap-6 items-start mb-7">
+              <div
+                class="bg-blue-600 min-w-10 h-10 rounded-xl flex justify-center items-center mt-1"
+              >
+                <span class="text-white">1</span>
+              </div>
+              <div>
+                <h3 class="text-gray-900 mb-3 text-2xl">كورسات أكاديمية شاملة</h3>
+                <p class="text-gray-600 leading-relaxed">
+                  نغطي جميع المواد الأساسية في مجالي الهندسة وتكنولوجيا المعلومات
+                  عبر المستويات الدراسية المختلفة من المستوى الأول حتى المستوى
+                  الخامس.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-6 items-start mb-7">
+              <div
+                class="bg-indigo-600 min-w-10 h-10 rounded-xl flex justify-center items-center mt-1"
+              >
+                <span class="text-white">2</span>
+              </div>
+              <div>
+                <h3 class="text-gray-900 mb-3 text-2xl">تنظيم واضح ومنهجي</h3>
+                <p class="text-gray-600 leading-relaxed">
+                  جميع الكورسات منظمة حسب التخصص، المستوى الأكاديمي، والفصل
+                  الدراسي، مما يسهل على الطلاب العثور على ما يحتاجونه بسرعة.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-6 items-start mb-7">
+              <div
+                class="bg-blue-600 min-w-10 h-10 rounded-xl flex justify-center items-center mt-1"
+              >
+                <span class="text-white">3</span>
+              </div>
+              <div>
+                <h3 class="text-gray-900 mb-3 text-2xl">واجهة استخدام بسيطة</h3>
+                <p class="text-gray-600 leading-relaxed">
+                  صميم نظيف وعصري يركز على تجربة المستخدم، مع دعم كامل للغة
+                  العربية والاتجاه من اليمين لليسار (RTL).
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-6 items-start">
+              <div
+                class="bg-indigo-600 min-w-10 h-10 rounded-xl flex justify-center items-center mt-1"
+              >
+                <span class="text-white">4</span>
+              </div>
+              <div>
+                <h3 class="text-gray-900 mb-3 text-2xl">متابعة التقدم الدراسي</h3>
+                <p class="text-gray-600 leading-relaxed">
+                  نوفر نظام مرئي واضح لمتابعة تقدمك في كل كورس، مما يساعدك على
+                  البقاء منظماً ومتحفزاً طوال رحلتك التعليمية.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-gradient-to-br from-blue-600 to-indigo-600">
+        <div class="text-center py-16">
+          <h2 class="text-4xl my-6 font-bold text-white">هل أنت مستعد للبدء؟</h2>
+          <p class="px-4 text-xl text-blue-100 mb-11 leading-relaxed">
+            انضم إلينا اليوم واستكشف عالماً من المعرفة الأكاديمية المنظمة
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <div id="courseDetails" class="page">
+      <section class="bg-gray-50">
+      <div class="py-10 px-8 max-w-5xl mx-auto">
+        <a
+          class="inline-flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors"
+          href="#"
+          onclick="changePage('courses')"
+        >
+          <i class="fa-solid fa-arrow-right align-middle mr-1"></i>
+          <span>العودة إلى الكورسات</span>
+        </a>
+
+        <div
+        id="courseDesc"
+          class="border border-gray-200 rounded-xl shadow-sm bg-white p-7 my-8 "
+        >
+          <div class="flex flex-wrap gap-3 mb-6">
+            <span class="px-4 py-2 rounded-full bg-indigo-100 text-indigo-700" id="dynamic-course-faculty"
+              >تكنولوجيا المعلومات</span
+            ><span class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full" id="dynamic-course-level"
+              >المستوى الأول</span
+            ><span class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full" id="dynamic-course-semester"
+              >الفصل الأول</span
+            >
+          </div>
+          <h2 class="text-gray-900 mb-4 text-3xl font-bold" id="dynamic-course-title">أساسيات البرمجة</h2>
+          <p class="text-gray-600 leading-relaxed" id="dynamic-course-desc">
+            مقدمة شاملة لأساسيات البرمجة باستخدام لغة بايثون. يتعلم الطلاب
+            المفاهيم الأساسية مثل المتغيرات، الحلقات، الشروط، والدوال. يركز
+            الكورس على بناء التفكير المنطقي وحل المشكلات البرمجية.
+          </p>
+        </div>
+
+        <div
+          class="bg-white rounded-2xl shadow-sm border border-gray-200 p-7 mb-8"
+          >
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-gray-900">التقدم في الكورس</h3>
+            <span id="progress-counter" class="text-blue-600">
+              0 / 0 درس
+            </span>
+          </div>
+
+          <div class="w-full bg-gray-100 rounded-full h-3 overflow-hidden">
+            <div
+              id="progress-line"
+              class="h-full bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full transition-all duration-500"
+              style="width: 0%;"
+            ></div>
+          </div>
+
+          <p id="progress-percentage" class="text-gray-600 mt-3">
+            0% مكتمل
+          </p>
+        </div>
+
+        <div
+          class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 sm:p-8"
+        >
+          <h3 class="text-gray-900 mb-6">قائمة الدروس</h3>
+          <div
+              id="video-player"
+              class="hidden mb-6 bg-black rounded-2xl overflow-hidden"
+            >
+              <iframe
+                id="youtube-frame"
+                class="w-full h-[400px]"
+                src=""
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+          </div>
+          <div id="lectures-container">
+            <div
+              class="flex items-center gap-4 p-4 rounded-xl border-2 transition-all duration-300 cursor-pointer group bg-blue-50 border-blue-200 hover:border-blue-300 mb-3"
+            >
+              <div
+                class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center bg-blue-600"
+              >
+                <span class="text-white text-sm">1</span>
+              </div>
+              <div class="flex-1">
+                <h4 class="text-blue-900">مقدمة في البرمجة والخوارزميات</h4>
+              </div>
+              <div
+                class="flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity"
+              >
+                <div
+                  class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center"
+                >
+
+                </div>
+              </div>
+              <button
+                class="flex-shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all bg-blue-600 border-blue-600"
+                aria-label="إلغاء التعيين كمكتمل"
+              >   
+                  <i class="fa-solid fa-check-circle fa-sm text-white"></i>          
+              </button>
+            </div>
+
+            <div
+              class="flex items-center gap-4 p-4 rounded-xl border-2 transition-all duration-300 cursor-pointer group bg-blue-50 border-blue-200 hover:border-blue-300 mb-3"
+            >
+              <div
+                class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center bg-blue-600"
+              >
+                <span class="text-white text-sm">2</span>
+              </div>
+              <div class="flex-1">
+                <h4 class="text-blue-900">المتغيرات وأنواع البيانات</h4>
+              </div>
+              <div
+                class="flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity"
+              >
+                <div
+                  class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center"
+                ></div>
+              </div>
+              <button
+                class="flex-shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all bg-blue-600 border-blue-600"
+                aria-label="إلغاء التعيين كمكتمل"
+              >
+                <i class="fa-solid fa-check-circle fa-sm text-white"></i>
+              </button>
+            </div>
+
+            <div
+              class="flex items-center gap-4 p-4 rounded-xl border-2 transition-all duration-300 cursor-pointer group bg-blue-50 border-blue-200 hover:border-blue-300 mb-3"
+            >
+              <div
+                class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center bg-blue-600"
+              >
+                <span class="text-white text-sm">3</span>
+              </div>
+              <div class="flex-1">
+                <h4 class="text-blue-900">العمليات الحسابية والمنطقية</h4>
+              </div>
+              <div
+                class="flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity"
+              >
+                <div
+                  class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center"
+                ></div>
+              </div>
+              <button
+                class="flex-shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all bg-blue-600 border-blue-600"
+                aria-label="إلغاء التعيين كمكتمل"
+              >
+                 <i class="fa-solid fa-check-circle fa-sm text-white"></i>
+            </button>
+            </div>
+
+            <div
+              class="flex items-center gap-4 p-4 rounded-xl border-2 transition-all duration-300 cursor-pointer group bg-blue-50 border-blue-200 hover:border-blue-300 mb-3"
+            >
+              <div
+                class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center bg-blue-600"
+              >
+                <span class="text-white text-sm">4</span>
+              </div>
+              <div class="flex-1">
+                <h4 class="text-blue-900">الجمل الشرطية (if, else, elif)</h4>
+              </div>
+              <div
+                class="flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity"
+              >
+                <div
+                  class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center"
+                ></div>
+              </div>
+              <button
+                class="flex-shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all bg-blue-600 border-blue-600"
+                aria-label="إلغاء التعيين كمكتمل"
+              >
+                <i class="fa-solid fa-check-circle fa-sm text-white"></i>
+              </button>
+            </div>
+
+            <div
+              class="flex items-center gap-4 p-4 rounded-xl border-2 transition-all duration-300 cursor-pointer group bg-blue-50 border-blue-200 hover:border-blue-300 mb-3"
+            >
+              <div
+                class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center bg-blue-600"
+              >
+                <span class="text-white text-sm">5</span>
+              </div>
+              <div class="flex-1">
+                <h4 class="text-blue-900">الحلقات التكرارية (for, while)</h4>
+              </div>
+              <div
+                class="flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity"
+              >
+                <div
+                  class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center"
+                ></div>
+              </div>
+              <button
+                class="flex-shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all bg-blue-600 border-blue-600"
+                aria-label="إلغاء التعيين كمكتمل"
+              >
+                <i class="fa-solid fa-check-circle fa-sm text-white"></i>
+              </button>
+            </div>
+
+            <div
+              class="flex items-center gap-4 p-4 rounded-xl border-2 transition-all duration-300 cursor-pointer group bg-gray-50 border-gray-200 hover:border-gray-300 mb-3"
+            >
+              <div
+                class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center bg-gray-300"
+              >
+                <span class="text-white text-sm">6</span>
+              </div>
+              <div class="flex-1">
+                <h4 class="text-gray-900">القوائم والمصفوفات</h4>
+              </div>
+              <div
+                class="flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity"
+              >
+                <div
+                  class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center"
+                ></div>
+              </div>
+              <button
+                class="flex-shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all border-gray-300 hover:border-blue-400"
+                aria-label="تعيين كمكتمل"
+              >
+                <i class="fa-solid fa-check-circle fa-sm text-white"></i>
+              </button>
+            </div>
+
+            <div
+              class="flex items-center gap-4 p-4 rounded-xl border-2 transition-all duration-300 cursor-pointer group bg-gray-50 border-gray-200 hover:border-gray-300 mb-3"
+            >
+              <div
+                class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center bg-gray-300"
+              >
+                <span class="text-white text-sm">7</span>
+              </div>
+              <div class="flex-1">
+                <h4 class="text-gray-900">الدوال والمعاملات</h4>
+              </div>
+              <div
+                class="flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity"
+              >
+                <div
+                  class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center"
+                ></div>
+              </div>
+              <button
+                class="flex-shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all border-gray-300 hover:border-blue-400"
+                aria-label="تعيين كمكتمل"
+              >
+                <i class="fa-solid fa-check-circle fa-sm text-white"></i>
+              </button>
+            </div>
+
+            <div
+              class="flex items-center gap-4 p-4 rounded-xl border-2 transition-all duration-300 cursor-pointer group bg-gray-50 border-gray-200 hover:border-gray-300 mb-3"
+            >
+              <div
+                class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center bg-gray-300"
+              >
+                <span class="text-white text-sm">8</span>
+              </div>
+              <div class="flex-1">
+                <h4 class="text-gray-900">التعامل مع السلاسل النصية</h4>
+              </div>
+              <div
+                class="flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity"
+              >
+                <div
+                  class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center"
+                ></div>
+              </div>
+              <button
+                class="flex-shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all border-gray-300 hover:border-blue-400"
+                aria-label="تعيين كمكتمل"
+              >
+                <i class="fa-solid fa-check-circle fa-sm text-white"></i>
+              </button>
+            </div>
+
+            <div
+              class="flex items-center gap-4 p-4 rounded-xl border-2 transition-all duration-300 cursor-pointer group bg-gray-50 border-gray-200 hover:border-gray-300 mb-3"
+            >
+              <div
+                class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center bg-gray-300"
+              >
+                <span class="text-white text-sm">9</span>
+              </div>
+              <div class="flex-1">
+                <h4 class="text-gray-900">القواميس والمجموعات</h4>
+              </div>
+              <div
+                class="flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity"
+              >
+                <div
+                  class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center"
+                ></div>
+              </div>
+              <button
+                class="flex-shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all border-gray-300 hover:border-blue-400"
+                aria-label="تعيين كمكتمل"
+              ></button>
+            </div>
+
+            <div
+              class="flex items-center gap-4 p-4 rounded-xl border-2 transition-all duration-300 cursor-pointer group bg-gray-50 border-gray-200 hover:border-gray-300 mb-3"
+            >
+              <div
+                class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center bg-gray-300"
+              >
+                <span class="text-white text-sm">10</span>
+              </div>
+              <div class="flex-1">
+                <h4 class="text-gray-900">معالجة الأخطاء والاستثناءات</h4>
+              </div>
+              <div
+                class="flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity"
+              >
+                <div
+                  class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center"
+                ></div>
+              </div>
+              <button
+                class="flex-shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all border-gray-300 hover:border-blue-400"
+                aria-label="تعيين كمكتمل"
+              ></button>
+            </div>
+
+            <div
+              class="flex items-center gap-4 p-4 rounded-xl border-2 transition-all duration-300 cursor-pointer group bg-gray-50 border-gray-200 hover:border-gray-300 mb-3"
+            >
+              <div
+                class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center bg-gray-300"
+              >
+                <span class="text-white text-sm">11</span>
+              </div>
+              <div class="flex-1">
+                <h4 class="text-gray-900">قراءة وكتابة الملفات</h4>
+              </div>
+              <div
+                class="flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity"
+              >
+                <div
+                  class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center"
+                ></div>
+              </div>
+              <button
+                class="flex-shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all border-gray-300 hover:border-blue-400"
+                aria-label="تعيين كمكتمل"
+              >
+                
+                  <circle cx="12" cy="12" r="10"></circle>
+                </svg>
+              </button>
+            </div>
+
+            <div
+              class="flex items-center gap-4 p-4 rounded-xl border-2 transition-all duration-300 cursor-pointer group bg-gray-50 border-gray-200 hover:border-gray-300"
+            >
+              <div
+                class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center bg-gray-300"
+              >
+                <span class="text-white text-sm">12</span>
+              </div>
+              <div class="flex-1">
+                <h4 class="text-gray-900">مشروع نهائي تطبيقي</h4>
+              </div>
+              <div
+                class="flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity"
+              >
+                <div
+                  class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center"
+                ></div>
+              </div>
+              <button
+                class="flex-shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all border-gray-300 hover:border-blue-400"
+                aria-label="تعيين كمكتمل"
+              ></button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      </section>
+    </div>
+
+    <footer>
+      <p class="text-center py-9 text-gray-600 border-t border-gray-200">
+        © 2025 منصة التعليم الأكاديمي - جميع الحقوق محفوظة
+      </p>
+    </footer>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+    
+  </body>
+</html>
+
+
