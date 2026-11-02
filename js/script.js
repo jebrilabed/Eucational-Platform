@@ -3,9 +3,38 @@ let courses = coursesDB;
 let currentCourse = null;
 let player; // كائن مشغل يوتيوب العالمي
 
+function updatePlatformStats() {
+  const stats = {
+    "stat-lecture-count": courses.reduce(
+      (total, course) => total + course.lectures.length,
+      0,
+    ),
+    "stat-faculty-count": new Set(courses.map((course) => course.faculty)).size,
+    "stat-level-count": new Set(courses.map((course) => course.level)).size,
+    "stat-course-count": courses.length,
+  };
+
+  Object.entries(stats).forEach(([id, value]) => {
+    const stat = document.getElementById(id);
+    if (stat) stat.textContent = value;
+  });
+}
+
+updatePlatformStats();
+
+const copyrightYear = document.getElementById("copyright-year");
+if (copyrightYear) copyrightYear.textContent = new Date().getFullYear();
+
 // Storage & Progress
 function getProgress() {
-  return JSON.parse(localStorage.getItem("progress")) || {};
+  try {
+    const progress = JSON.parse(localStorage.getItem("progress") || "{}");
+    return progress && typeof progress === "object" && !Array.isArray(progress)
+      ? progress
+      : {};
+  } catch {
+    return {};
+  }
 }
 
 function saveProgress(progress) {
@@ -14,29 +43,47 @@ function saveProgress(progress) {
 
 // Navigation
 function changePage(pageId) {
+  const activePage = document.getElementById(pageId);
+  if (!activePage) return;
+
   document.querySelectorAll(".page").forEach((page) => {
     page.classList.add("hidden");
     page.classList.remove("block");
   });
 
-  const activePage = document.getElementById(pageId);
-  if (!activePage) return;
-
   activePage.classList.remove("hidden");
   activePage.classList.add("block");
 
-  if (pageId === "courses") drawCoursesUI(courses);
+  if (pageId === "courses") filterItems();
   if (pageId !== "courseDetails") changeLinkColor(activePage);
+
+  if (pageId !== "courseDetails") {
+    if (player && typeof player.destroy === "function") player.destroy();
+    player = null;
+    document.getElementById("video-api-wrapper")?.remove();
+  }
+
+  window.scrollTo(0, 0);
 }
 
 changePage("home");
 
 function changeLinkColor(activePage) {
   const links = document.querySelectorAll(".links");
-  links.forEach((link) => link.classList.remove("text-blue-600"));
+  links.forEach((link) => {
+    link.classList.remove("text-blue-600");
+    link.removeAttribute("aria-current");
+  });
   const activeLink = document.getElementById(activePage.id + "Link");
-  if (activeLink) activeLink.classList.add("text-blue-600");
+  if (activeLink) {
+    activeLink.classList.add("text-blue-600");
+    activeLink.setAttribute("aria-current", "page");
+  }
 }
+
+document.addEventListener("click", (event) => {
+  if (event.target.closest('a[onclick*="changePage"]')) event.preventDefault();
+});
 
 // UI Drawing
 function drawCoursesUI(coursesList) {
@@ -44,13 +91,22 @@ function drawCoursesUI(coursesList) {
   const numOfCourses = document.getElementById("num-of-courses");
   if (!coursesContainer) return;
 
-  if (numOfCourses) numOfCourses.innerHTML = coursesList.length || "0";
+  if (numOfCourses) numOfCourses.textContent = coursesList.length;
+
+  if (coursesList.length === 0) {
+    coursesContainer.innerHTML = `
+      <div class="col-span-full rounded-xl border border-dashed border-gray-300 bg-white p-8 text-center text-gray-600">
+        لا توجد كورسات تطابق خيارات التصفية. جرّب اختيار مستوى أو فصل آخر.
+      </div>
+    `;
+    return;
+  }
 
   coursesContainer.innerHTML = coursesList
     .map(
       (course) => `
-      <div class="cursor-pointer border border-gray-200 rounded-xl shadow-sm hover:shadow-md bg-white p-7 transition-all">
-        <span class="text-indigo-700 bg-indigo-100 py-0.5 px-3 text-sm rounded-full">تكنولوجيا المعلومات</span>
+      <div class="border border-gray-200 rounded-xl shadow-sm hover:shadow-md bg-white p-7 transition-all">
+        <span class="text-indigo-700 bg-indigo-100 py-0.5 px-3 text-sm rounded-full">${course.faculty}</span>
         <h3 class="text-gray-900 text-xl mt-4 mb-2">${course.title}</h3>
         <div class="text-gray-600 text-sm">
           <p>${course.level}</p>
@@ -70,22 +126,24 @@ function drawLecturesList(lectures) {
   if (!lecturesContainer || !currentCourse) return;
 
   const progress = getProgress();
-  const completedLectures = progress[currentCourse.id] || [];
+  const completedLectures = Array.isArray(progress[currentCourse.id])
+    ? progress[currentCourse.id]
+    : [];
 
   lecturesContainer.innerHTML = lectures
     .map((lecture, index) => {
       const isCompleted = completedLectures.includes(lecture.id);
       return `
-        <div class="cursor-pointer group lecture-item flex items-center gap-4 p-4 rounded-xl border-2 transition-all mb-3 ${isCompleted ? "bg-blue-50 border-blue-200" : "bg-gray-50 border-gray-200"}">
-          <div class="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm ${isCompleted ? "bg-blue-600" : "bg-gray-300"}">${index + 1}</div>
-          <div class="flex-1 font-medium text-gray-800">${lecture.title}</div>
+        <div class="group lecture-item flex items-center gap-4 p-4 rounded-xl border-2 transition-all mb-3 ${isCompleted ? "bg-blue-50 border-blue-200" : "bg-gray-50 border-gray-200"}">
+          <div class="shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-white text-sm ${isCompleted ? "bg-blue-600" : "bg-gray-300"}">${index + 1}</div>
+          <div class="min-w-0 flex-1 font-medium text-gray-800">${lecture.title}</div>
 
-          <button onclick="playVideo('${lecture.videoURL}')" class="cursor-pointer w-9 h-9 bg-blue-600 text-white rounded-full flex items-center justify-center hover:scale-110 transition opacity-0 group-hover:opacity-100">
+          <button type="button" data-video-url="${lecture.videoURL}" aria-label="تشغيل الدرس: ${lecture.title}" class="play-lecture cursor-pointer shrink-0 w-9 h-9 bg-blue-600 text-white rounded-full flex items-center justify-center hover:scale-110 transition opacity-0 group-hover:opacity-100">
             <i class="fa-solid fa-play fa-xs"></i>
           </button>
 
-          <button class="cursor-pointer check-lecture w-7 h-7 rounded-full border-2 flex items-center justify-center transition ${isCompleted ? "bg-blue-600 border-blue-600 text-white" : "border-gray-300"}" data-lecture-id="${lecture.id}">
-            <i class="fa-solid fa-check fa-xs"></i>
+          <button type="button" aria-label="${isCompleted ? "إلغاء إكمال" : "تحديد كمكتمل"}: ${lecture.title}" aria-pressed="${isCompleted}" class="cursor-pointer check-lecture shrink-0 w-7 h-7 rounded-full border-2 flex items-center justify-center transition ${isCompleted ? "bg-blue-600 border-blue-600 text-white" : "border-gray-300"}" data-lecture-id="${lecture.id}">
+            ${isCompleted ? '<i class="fa-solid fa-check fa-xs"></i>' : ""}
           </button>
         </div>
       `;
@@ -158,6 +216,11 @@ function playVideo(url) {
 
 // Event Listeners
 
+document.addEventListener("click", function (e) {
+  const btn = e.target.closest(".play-lecture");
+  if (btn) playVideo(btn.dataset.videoUrl);
+});
+
 // فتح الكورس
 document.addEventListener("click", function (e) {
   const btn = e.target.closest(".show-course");
@@ -180,7 +243,9 @@ document.addEventListener("click", function (e) {
   const lectureId = btn.dataset.lectureId;
   const courseId = currentCourse.id;
   const progress = getProgress();
-  progress[courseId] = progress[courseId] || [];
+  progress[courseId] = Array.isArray(progress[courseId])
+    ? progress[courseId]
+    : [];
 
   if (!progress[courseId].includes(lectureId)) {
     progress[courseId].push(lectureId);
@@ -202,12 +267,18 @@ function updateProgressLine(courseId) {
   if (!progressLine || !currentCourse) return;
 
   const total = currentCourse.lectures.length;
-  const completed = (getProgress()[courseId] || []).length;
+  const savedLectures = getProgress()[courseId];
+  const completed = Array.isArray(savedLectures)
+    ? savedLectures.filter((id) =>
+        currentCourse.lectures.some((lecture) => lecture.id === id),
+      ).length
+    : 0;
   const percent = total === 0 ? 0 : Math.round((completed / total) * 100);
 
-  progressCounter.textContent = `${completed} / ${total} درس`;
+  progressCounter.textContent = `${completed} من ${total} درس`;
   progressPercentage.textContent = `${percent}% مكتمل`;
   progressLine.style.width = `${percent}%`;
+  progressLine.setAttribute("aria-valuenow", String(percent));
 }
 
 function openCourseDetails(course) {
@@ -236,6 +307,8 @@ if (levelFilter && semesterFilter) {
 }
 
 function filterItems() {
+  if (!levelFilter || !semesterFilter) return;
+
   const levelValue = levelFilter.value;
   const semesterValue = semesterFilter.value;
 

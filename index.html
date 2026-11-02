@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    
+    <meta name="description" content="منصة تعليمية عربية لطلاب الهندسة وتكنولوجيا المعلومات، تضم كورسات منظمة حسب المستوى والفصل الدراسي." />
     
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     
@@ -19,21 +18,20 @@
       rel="stylesheet"
       href="style/fontawesome-free-7.1.0-web/css/all.min.css"
     />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
-    <title>Educational Platform | Home Page</title>
+    <title>منصة التعليم الأكاديمي</title>
+    <link rel="stylesheet" href="style/responsive.css" />
   </head>
 
-  <body dir="rtl" style="font-family: Cairo, sans-serif">
+  <body style="font-family: Cairo, sans-serif">
 
     <header
       class="sticky top-0 z-50 shadow-sm border-b border-b-gray-200 bg-white"
     >
-      <div class="p-8 max-w-7xl mx-auto">
-        <div class="flex justify-between items-center">
-          <a href="#" onclick="changePage('home')" class="text-2xl font-bold group flex">
+      <div class="px-4 py-3 sm:px-8 sm:py-5 max-w-7xl mx-auto">
+        <div class="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
+          <a href="#" onclick="changePage('home')" class="text-lg sm:text-2xl font-bold group flex items-center min-w-0">
             <div
-              class="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform"
+              class="w-9 h-9 sm:w-10 sm:h-10 shrink-0 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -60,8 +58,8 @@
             </h1>
           </a>
 
-          <nav>
-            <ul class="list-none flex justify-between gap-5">
+          <nav aria-label="التنقل الرئيسي">
+            <ul class="list-none flex justify-between gap-2 sm:gap-5">
               <li class="text-gray-900 hover:text-blue-600 transition-colors">
                 <a href="#" id="homeLink" class="links" onclick="changePage('home')">الرئيسية</a>
               </li>
@@ -82,7 +80,7 @@
         class="bg-gradient-to-br from-blue-600 via-indigo-600 to-blue-700"
       >
         <div class="py-32 max-w-7xl mx-auto">
-          <div class="flex gap-17 justify-center">
+          <div class="flex flex-col gap-8 lg:flex-row lg:gap-16 justify-center">
             <div class="w-full lg:w-5/12">
               <span
                 class="text-blue-100 bg-white/20 py-2 px-4 text-sm rounded-full"
@@ -95,7 +93,7 @@
               </h1>
               <p class="text-blue-100 leading-relaxed text-xl">
                 منصة تعليمية متكاملة لطلاب الهندسة وتكنولوجيا المعلومات. اكتشف
-                مئات الكورسات الأكاديمية المنظمة والمصممة خصيصاً لدعم مسيرتك
+                كورسات أكاديمية منظمة ومصممة خصيصاً لدعم مسيرتك
                 التعليمية.
               </p>
               <div class="mt-8 flex gap-5">
@@ -171,19 +169,19 @@
         <div class="py-16 px-8 max-w-7xl mx-auto border-b border-gray-200">
           <div class="grid lg:grid-cols-4 grid-cols-2 gap-8">
             <div class="text-center">
-              <h2 class="text-5xl text-indigo-600 mb-2">100+</h2>
+              <h2 id="stat-lecture-count" class="text-5xl text-indigo-600 mb-2">60</h2>
               <span class="text-gray-600 text-lg">درس تعليمي</span>
             </div>
             <div class="text-center">
-              <h2 class="text-5xl text-indigo-600 mb-2">2</h2>
+              <h2 id="stat-faculty-count" class="text-5xl text-indigo-600 mb-2">2</h2>
               <span class="text-gray-600 text-lg">تخصص رئيسي</span>
             </div>
             <div class="text-center">
-              <h2 class="text-5xl text-indigo-600 mb-2">5</h2>
+              <h2 id="stat-level-count" class="text-5xl text-indigo-600 mb-2">2</h2>
               <span class="text-gray-600 text-lg">مستويات دراسية</span>
             </div>
             <div class="text-center">
-              <h2 class="text-5xl text-indigo-600 mb-2">+12</h2>
+              <h2 id="stat-course-count" class="text-5xl text-indigo-600 mb-2">3</h2>
               <span class="text-gray-600 text-lg">كورس أكاديمي</span>
             </div>
           </div>
@@ -195,7 +193,7 @@
           <div class="text-center">
             <h2 class="text-4xl mb-4 font-bold">لماذا تختار منصتنا؟</h2>
             <p class="max-w-2xl mx-auto text-xl text-gray-600">
-              نوفر لك تجربة تعليمية متكاملة مصممة خصيصا لطلاب الهنجسة وتكنولوجيا
+              نوفر لك تجربة تعليمية متكاملة مصممة خصيصاً لطلاب الهندسة وتكنولوجيا
               المعلومات
             </p>
           </div>
@@ -300,8 +298,7 @@
             ابدأ رحلتك التعليمية الآن
           </h2>
           <p class="px-4 text-xl text-blue-100 leading-relaxed">
-            انضم إلى آلاف الطلاب الذين يطورون مهاراتهم الأكاديمية من خلال منصتنا
-            التعليمية
+            ابدأ بتطوير مهاراتك الأكاديمية من خلال محتوى منظم وسهل الوصول
           </p>
           <div class="mb-6 mt-12">
             <a
@@ -315,7 +312,7 @@
       </section>
     </div>
 
-    <div id="courses" class="page">
+    <div id="courses" class="page hidden">
       <section class="bg-gray-50">
       <div class="pt-14 pb-24 px-8 max-w-7xl mx-auto">
         <div>
@@ -334,7 +331,7 @@
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3">
             <div>
-              <label for="المستوى الأكاديمي" class="block text-gray-600 text-sm"
+              <label for="level-filter" class="block text-gray-600 text-sm"
                 >المستوى الأكاديمي</label
               >
               <select
@@ -351,7 +348,7 @@
               </select>
             </div>
             <div>
-              <label for="الفصل الدراسي" class="block text-gray-600 text-sm"
+              <label for="semester-filter" class="block text-gray-600 text-sm"
                 >الفصل الدراسي</label
               >
               <select
@@ -369,7 +366,7 @@
 
         <div class="max-w-7xl mx-auto mb-6 mt-8">
           <p class="text-gray-700">
-            عرض <span id="num-of-courses" class="text-blue-600"></span> كورس
+            عدد الكورسات: <span id="num-of-courses" class="text-blue-600"></span>
           </p>
         </div>
 
@@ -378,7 +375,7 @@
     </section>
     </div>
 
-    <div id="aboutPlatform" class="page">
+    <div id="aboutPlatform" class="page hidden">
       <section>
         <div
           class="px-12 py-20 bg-gradient-to-br from-blue-600 to-indigo-600 text-center"
@@ -585,7 +582,7 @@
               <div>
                 <h3 class="text-gray-900 mb-3 text-2xl">واجهة استخدام بسيطة</h3>
                 <p class="text-gray-600 leading-relaxed">
-                  صميم نظيف وعصري يركز على تجربة المستخدم، مع دعم كامل للغة
+                  تصميم نظيف وعصري يركز على تجربة المستخدم، مع دعم كامل للغة
                   العربية والاتجاه من اليمين لليسار (RTL).
                 </p>
               </div>
@@ -619,7 +616,7 @@
       </section>
     </div>
 
-    <div id="courseDetails" class="page">
+    <div id="courseDetails" class="page hidden">
       <section class="bg-gray-50">
       <div class="py-10 px-8 max-w-5xl mx-auto">
         <a
@@ -665,6 +662,11 @@
           <div class="w-full bg-gray-100 rounded-full h-3 overflow-hidden">
             <div
               id="progress-line"
+              role="progressbar"
+              aria-label="التقدم في الكورس"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="0"
               class="h-full bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full transition-all duration-500"
               style="width: 0%;"
             ></div>
@@ -1012,7 +1014,7 @@
 
     <footer>
       <p class="text-center py-9 text-gray-600 border-t border-gray-200">
-        © 2025 منصة التعليم الأكاديمي - جميع الحقوق محفوظة
+        © <span id="copyright-year">2026</span> منصة التعليم الأكاديمي - جميع الحقوق محفوظة
       </p>
     </footer>
 
